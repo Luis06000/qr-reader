@@ -2,6 +2,9 @@ import os
 import tkinter as tk
 from tkinter import messagebox
 import webbrowser
+from tkinter import filedialog
+from pyzbar.pyzbar import decode
+import cv2
 
 def afficher_resultat(resultats):
     fenetre = tk.Tk()
@@ -25,10 +28,10 @@ def lire_fichier(file):
     resultats = []
 
     if extension in ['.png', '.jpg', '.jpeg']:
-        import cv2
-        from pyzbar.pyzbar import decode
-        
         image_cv = cv2.imread(file)
+        if image_cv is None:
+            print("Erreur : Impossible de lire l'image. Vérifiez le chemin du fichier.")
+            return
         decoded_objects = decode(image_cv)
         for obj in decoded_objects:
             lien = obj.data.decode('utf-8')
@@ -46,5 +49,11 @@ def lire_fichier(file):
 
     afficher_resultat(resultats)
 
-file = 'image.png'
-lire_fichier(file)
+def choisir_fichier():
+    chemin_fichier = filedialog.askopenfilename(title="Sélectionnez un fichier", filetypes=[("Image files", "*.png;*.jpg;*.jpeg")])
+    if chemin_fichier:
+        lire_fichier(chemin_fichier)
+
+root = tk.Tk()
+root.withdraw()
+choisir_fichier()
