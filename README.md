@@ -7,6 +7,7 @@ Ce projet permet de lire des QR codes à partir d'images (formats PNG, JPG, JPEG
 - Lecture de QR codes à partir d'images.
 - Extraction de texte à partir de fichiers PDF.
 - Interface graphique simple avec Tkinter.
+- Boîte de dialogue pour sélectionner le fichier à lire.
 - Boutons pour ouvrir les liens trouvés.
 
 ## Prérequis
@@ -33,15 +34,14 @@ Avant de commencer, assurez-vous d'avoir installé Python et `pip` sur votre mac
 
 ## Utilisation
 
-1. Placez votre fichier image (PNG, JPG, JPEG) ou PDF dans le même répertoire que `main.py`.
-2. Modifiez la variable `file` dans `main.py` pour correspondre au nom de votre fichier.
-3. Exécutez le script :
-
+1. Exécutez le script :
    ```bash
    python main.py
    ```
 
-4. Une fenêtre s'ouvrira affichant les résultats. Cliquez sur le bouton "Ouvrir" à côté de chaque lien pour l'ouvrir dans votre navigateur.
+2. Une boîte de dialogue s'ouvrira pour vous permettre de sélectionner votre fichier image (PNG, JPG, JPEG) ou PDF.
+
+3. Une fois le fichier sélectionné, une fenêtre s'ouvrira affichant les résultats. Cliquez sur le bouton "Ouvrir" à côté de chaque lien pour l'ouvrir dans votre navigateur.
 
 ## Auteurs
 
